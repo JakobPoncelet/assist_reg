@@ -1,0 +1,29 @@
+# Normal execution
+Universe         = vanilla
+requestCpus      = 4
+RequestMemory    = 7G
+request_GPUs      = 1
+# request wall time in seconds
++RequestWalltime = 30000
+
+Requirements = Has_avx && (CUDACapability >= 3.0)\
+  &&(CUDAGlobalMemoryMb >= 3000)
+
+NiceUser = true
+
+initialdir = .
+
+#Run he build cluster script for the parameter server
+Arguments = "python2 -um assist.scripts.$(script) $(expdir)"
+# This is the executable or script I want to run
+executable = assist/condor/create_environment.sh
+
+#Output of condors handling of the jobs, will be in 'initialdir'
+Log          = $(expdir)/outputs/$(script).log
+#Standard output of the 'executable', in 'initialdir'
+Output       = $(expdir)/outputs/$(script).out
+#Standard error of the 'executable', in 'initialdir'
+Error        = $(expdir)/outputs/$(script).err
+
+# Queue however many parameter servers were requested
+Queue 1
