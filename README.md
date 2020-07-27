@@ -1,6 +1,7 @@
 # About this repo
 
-This repo is based on [https://github.com/vrenkens/assist/] and contains changes to the original programs. Some of the changes are outlined in CHANGES_README.md. 
+This repo is based on [https://github.com/vrenkens/assist/] and contains changes to the original programs. It is advised to start with the original. 
+Some of the changes are outlined in CHANGES_README.md. More specifically, this code presents the regularised capsule networks (RCCN_SPK and PCCN_SPK) which implements speaker recognition and word reconstruction from capsule content.
  
 
 # Assist
